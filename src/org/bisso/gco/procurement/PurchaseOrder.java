@@ -7,8 +7,10 @@ public class PurchaseOrder {
 
 	Supplier supplier;
 	
+	Quotation quotation;
+	
 	User createdBy;
 	
-	
+	PurchaseOrderItem[] items;
 	
 }
