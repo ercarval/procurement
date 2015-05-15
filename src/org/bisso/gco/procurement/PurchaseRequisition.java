@@ -4,10 +4,36 @@ import org.bisso.gco.identity.User;
 
 public class PurchaseRequisition {
 
-	User requestedBy;
+	private User requestedBy;
 	
-	User createdBy;
+	private User createdBy;
 	
-	PurchaseRequisitionItem[] items;
+	private PurchaseRequisitionItem[] items;
+
+	public User getRequestedBy() {
+		return requestedBy;
+	}
+
+	public void setRequestedBy(User requestedBy) {
+		this.requestedBy = requestedBy;
+	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public PurchaseRequisitionItem[] getItems() {
+		return items;
+	}
+
+	public void setItems(PurchaseRequisitionItem[] items) {
+		this.items = items;
+	}
+	
+	
 	
 }

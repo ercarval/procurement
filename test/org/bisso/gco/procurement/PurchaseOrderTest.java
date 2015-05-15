@@ -9,9 +9,19 @@ public class PurchaseOrderTest {
 		
 		PurchaseOrder purchaseOrder = new PurchaseOrder();
 		
-		purchaseOrder.items = new PurchaseOrderItem[10];
-		purchaseOrder.supplier = new Supplier();
-		purchaseOrder.createdBy = new User();
+		if (purchaseOrder.getCreatedBy() == null) {
+			System.out.println("Faio o Created By");
+		}
+		
+		if (purchaseOrder.getItems() == null) {
+			System.out.println("Faio o Items");
+		}
+		
+		if (purchaseOrder.getSupplier() == null) {
+			System.out.println("Faio o Supplier");
+		}
+		
+		
 		
 		
 	}
