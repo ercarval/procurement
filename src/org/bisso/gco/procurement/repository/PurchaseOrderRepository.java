@@ -14,17 +14,20 @@ public class PurchaseOrderRepository {
 	public void createPurchaseOrderDdl() throws Exception {
 		//0 - Registrar o Driver
 		Class.forName("org.apache.derby.jdbc.ClientDriver40");
+		//Class.forName("com.mysql.jdbc.Driver");
 		
 		//1 - Conectar 
 		//Padrao de URL jdbc:<nomedovendor>:<subnome>
 		Connection conn = DriverManager
-					.getConnection("jdbc:derby://localhost:1527/gco;create=true"
+					.getConnection(
+							//"jdbc:mysql://localhost:3306/sonar"
+							"jdbc:derby://localhost:1527/gco;create=true"
 							, "app"
 							, "app");
 		
 		//Ja estou conectado \o/ !!!!!
 		//2 - Capacidade de Executar Comandos
-		State
+		//State
 		
 		
 		
