@@ -5,6 +5,10 @@ import org.bisso.gco.identity.User;
 
 public class PurchaseOrder {
 
+	private long id;
+	
+
+
 	private Supplier supplier;
 	
 	private Quotation quotation;
@@ -24,6 +28,14 @@ public class PurchaseOrder {
 		
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public Supplier getSupplier() {
 		return supplier;
 	}

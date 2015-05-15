@@ -7,6 +7,8 @@ import org.bisso.gco.identity.User;
 
 public class Quotation {
 	
+	private long id;
+
 	private Supplier supplier;
 	
 	private User createdBy;
@@ -15,6 +17,14 @@ public class Quotation {
 	
 	private Date createdDate;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public Supplier getSupplier() {
 		return supplier;
 	}
