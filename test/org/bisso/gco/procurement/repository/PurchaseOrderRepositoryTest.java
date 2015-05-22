@@ -52,6 +52,7 @@ public class PurchaseOrderRepositoryTest {
 		createdBy.setName("Seu Ze das Cove");
 		
 		PurchaseOrder purchaseOrder = createNewPurchaseOrderFixture();
+		purchaseOrder.setId(1);
 		purchaseOrder.setCreatedBy(createdBy);
 
 		repository.update( purchaseOrder );
@@ -61,6 +62,10 @@ public class PurchaseOrderRepositoryTest {
 	public void removePurchaseOrderIntoRepositoryTest() {
 		//PurchaseOrder purchaseOrder = createNewPurchaseOrderFixture();
 		//repository.delete( purchaseOrder );
+	}
+
+	public void listAllPurchaseOrdersTest() throws Exception {
+		repository.listAll();
 	}
 	
 	
@@ -75,6 +80,8 @@ public class PurchaseOrderRepositoryTest {
 		test.createNewPurchaseOrderIntoRepositoryTest();
 		
 		test.updatePurchaseOrderIntoRepositoryTest();
+		
+		test.listAllPurchaseOrdersTest();
 		
 		
 	}

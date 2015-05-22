@@ -18,10 +18,10 @@ public class PurchaseOrder {
 	private PurchaseOrderItem[] items;
 	
 	public PurchaseOrder () {
-		System.out.println("Caraca Criei a PO viu ..");
 		items = new PurchaseOrderItem[10];
 		supplier = new Supplier();
 		createdBy = new User();
+		quotation = new Quotation();
 //		purchaseOrder.setItems( new PurchaseOrderItem[10]);
 //		purchaseOrder.setSupplier( new Supplier());
 //		purchaseOrder.setCreatedBy( new User());
