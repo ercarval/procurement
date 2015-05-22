@@ -13,6 +13,35 @@ public class PurchaseOrderRepository {
 			//3 - Executar o Danado .. do Comando.
 				//4 - liberar a conexao !!!
 
+	public void dropPurchaseOrderDdl() throws Exception {
+		//0 - Registrar o Driver
+		Class.forName("org.apache.derby.jdbc.ClientDriver40");
+		//Class.forName("com.mysql.jdbc.Driver");
+		
+		//1 - Conectar 
+		//Padrao de URL jdbc:<nomedovendor>:<subnome>
+		Connection conn = DriverManager
+					.getConnection(
+							//"jdbc:mysql://localhost:3306/sonar"
+							"jdbc:derby://localhost:1527/gco;create=true"
+							, "app"
+							, "app");
+		
+		//Ja estou conectado \o/ !!!!!
+		//2 - Capacidade de Executar Comandos
+		Statement stmt = conn.createStatement();
+		
+		stmt.executeUpdate("DROP TABLE APP.PURCHASE_ORDER");
+											
+		
+		stmt.close();
+		
+		conn.close();
+		
+		
+		
+	}
+
 	
 	public void createPurchaseOrderDdl() throws Exception {
 		//0 - Registrar o Driver
