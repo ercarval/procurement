@@ -1,11 +1,10 @@
 package org.bisso.gco.account;
 
-import javax.jws.WebService;
-
-@WebService
 public class Supplier {
 	
 	private long id;
+	
+	private String name;
 
 	public long getId() {
 		return id;
@@ -15,6 +14,13 @@ public class Supplier {
 		this.id = id;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 
 }

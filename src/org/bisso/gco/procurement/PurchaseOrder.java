@@ -6,7 +6,6 @@ import org.bisso.gco.identity.User;
 public class PurchaseOrder {
 
 	private long id;
-	
 
 
 	private Supplier supplier;
@@ -24,6 +23,19 @@ public class PurchaseOrder {
 		quotation = new Quotation();
 	}
 
+	public PurchaseOrder (User user) {
+		
+	}
+
+	public PurchaseOrder (Supplier supplier , User user) {
+		
+	}
+
+	public PurchaseOrder (  User user, Supplier supplier) {
+		
+	}
+	
+	
 	public long getId() {
 		return id;
 	}
