@@ -1,5 +1,8 @@
 package org.bisso.gco.account;
 
+import javax.jws.WebService;
+
+@WebService
 public class Supplier {
 	
 	private long id;

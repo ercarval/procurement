@@ -22,10 +22,6 @@ public class PurchaseOrder {
 		supplier = new Supplier();
 		createdBy = new User();
 		quotation = new Quotation();
-//		purchaseOrder.setItems( new PurchaseOrderItem[10]);
-//		purchaseOrder.setSupplier( new Supplier());
-//		purchaseOrder.setCreatedBy( new User());
-		
 	}
 
 	public long getId() {
