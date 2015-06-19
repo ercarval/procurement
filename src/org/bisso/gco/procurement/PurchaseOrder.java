@@ -15,7 +15,7 @@ public class PurchaseOrder {
 	private User createdBy;
 	
 	private PurchaseOrderItem[] items;
-	
+
 	public PurchaseOrder () {
 		items = new PurchaseOrderItem[10];
 		supplier = new Supplier();
@@ -31,10 +31,9 @@ public class PurchaseOrder {
 		
 	}
 
-	public PurchaseOrder (  User user, Supplier supplier) {
+	public PurchaseOrder ( Quotation quotation ) {
 		
 	}
-	
 	
 	public long getId() {
 		return id;
@@ -90,6 +89,10 @@ public class PurchaseOrder {
 	}
 	*/
 	
+	
+	public static void main(String[] args) {
+		PurchaseOrder po = new PurchaseOrder(new Quotation());
+	}
 	
 	
 }

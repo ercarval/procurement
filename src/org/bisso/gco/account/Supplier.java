@@ -6,6 +6,18 @@ public class Supplier {
 	
 	private String name;
 
+	public Supplier() {
+	}
+
+	public Supplier(long id) {
+		this.id = id;
+	}
+
+	public Supplier(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -7,6 +7,19 @@ public class User {
 	private String name;
 	
 	
+	
+	public User() {
+	}
+
+	public User(long id) {
+		this.id = id;
+	}
+
+	public User(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public long getId() {
 		return id;
 	}
