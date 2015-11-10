@@ -91,7 +91,16 @@ public class PurchaseOrder {
 	
 	
 	public static void main(String[] args) {
-		PurchaseOrder po = new PurchaseOrder(new Quotation());
+	
+		
+		for ( int i = 0 ; i < 20 ; i++ ) {
+			
+			PurchaseOrder po = new PurchaseOrder(new Quotation());
+			
+			
+		}
+		//uix
+	
 	}
 	
 	

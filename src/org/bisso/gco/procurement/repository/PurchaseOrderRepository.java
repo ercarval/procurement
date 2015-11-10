@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.bisso.commons.repository.CommonsRepository;
 import org.bisso.gco.procurement.PurchaseOrder;
 
 public class PurchaseOrderRepository {
@@ -15,116 +16,45 @@ public class PurchaseOrderRepository {
 	// 3 - Executar o Danado .. do Comando.
 	// 4 - liberar a conexao !!!
 
+	private CommonsRepository repository;
+	
+	public PurchaseOrderRepository() {
+		repository = new CommonsRepository();
+	}
+	
+	
 	public void dropPurchaseOrderDdl() throws Exception {
-		// 0 - Registrar o Driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver40");
-		// Class.forName("com.mysql.jdbc.Driver");
-
-		// 1 - Conectar
-		// Padrao de URL jdbc:<nomedovendor>:<subnome>
-		Connection conn = DriverManager.getConnection(
-		// "jdbc:mysql://localhost:3306/sonar"
-				"jdbc:derby://localhost:1527/gco;create=true", "app", "app");
-
-		// Ja estou conectado \o/ !!!!!
-		// 2 - Capacidade de Executar Comandos
-		Statement stmt = conn.createStatement();
-
-		stmt.executeUpdate("DROP TABLE APP.PURCHASE_ORDER");
-
-		stmt.close();
-
-		conn.close();
-
+		
+		repository.executeUpdate("DROP TABLE APP.PURCHASE_ORDER");
+		
 	}
 
 	public void createPurchaseOrderDdl() throws Exception {
-		// 0 - Registrar o Driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver40");
-		// Class.forName("com.mysql.jdbc.Driver");
 
-		// 1 - Conectar
-		// Padrao de URL jdbc:<nomedovendor>:<subnome>
-		Connection conn = DriverManager.getConnection(
-		// "jdbc:mysql://localhost:3306/sonar"
-				"jdbc:derby://localhost:1527/gco;create=true", "app", "app");
-
-		// Ja estou conectado \o/ !!!!!
-		// 2 - Capacidade de Executar Comandos
-		Statement stmt = conn.createStatement();
-
-		stmt.executeUpdate("CREATE TABLE APP.PURCHASE_ORDER ("
+		repository.executeUpdate("CREATE TABLE APP.PURCHASE_ORDER ("
 				+ "ID  INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS"
 				+ " AS IDENTITY (START WITH 1, INCREMENT BY 1),"
 				+ "SUPPLIER_ID INTEGER," + "QUOTATION_ID INTEGER,"
 				+ "USER_ID INTEGER, " + "CREATED_DATE DATE,"
 				+ "LASTMODIFIED_DATE DATE )");
 
-		stmt.close();
-
-		conn.close();
-
 	}
 
 	public void create(PurchaseOrder purchaseOrder) throws Exception {
-		/*
-		 * " insert into app.puchase_order (supplier_id,quotation_id ,user_id )
-		 * values ( " + purchaseOrder.getSupplier().getId() + " , " +
-		 * purchaseOrder.getQuotation().getId() + " , " +
-		 * purchaseOrder.getUser().getId() )
-		 */
-
-		// 0 - Registrar o Driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver40");
-		// Class.forName("com.mysql.jdbc.Driver");
-
-		// 1 - Conectar
-		// Padrao de URL jdbc:<nomedovendor>:<subnome>
-		Connection conn = DriverManager.getConnection(
-		// "jdbc:mysql://localhost:3306/sonar"
-				"jdbc:derby://localhost:1527/gco;create=true", "app", "app");
-
-		// Ja estou conectado \o/ !!!!!
-		// 2 - Capacidade de Executar Comandos
-		Statement stmt = conn.createStatement();
-
-		stmt.executeUpdate(" insert into app.purchase_order "
+		repository.executeUpdate(" insert into app.purchase_order "
 				+ "  (supplier_id,quotation_id ,user_id ) " + "  values ( "
 				+ purchaseOrder.getSupplier().getId() + " , "
 				+ purchaseOrder.getQuotation().getId() + " , "
 				+ purchaseOrder.getCreatedBy().getId() + " )");
-
-		stmt.close();
-
-		conn.close();
-
 	}
 
 	public void update(PurchaseOrder purchaseOrder) throws Exception {
 
-		// 0 - Registrar o Driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver40");
-		// Class.forName("com.mysql.jdbc.Driver");
-
-		// 1 - Conectar
-		// Padrao de URL jdbc:<nomedovendor>:<subnome>
-		Connection conn = DriverManager.getConnection(
-		// "jdbc:mysql://localhost:3306/sonar"
-				"jdbc:derby://localhost:1527/gco;create=true", "app", "app");
-
-		// Ja estou conectado \o/ !!!!!
-		// 2 - Capacidade de Executar Comandos
-		Statement stmt = conn.createStatement();
-
-		stmt.executeUpdate(" update  app.purchase_order "
+		repository.executeUpdate(" update  app.purchase_order "
 				+ "  set supplier_id = " + purchaseOrder.getSupplier().getId()
 				+ "  , quotation_id = " + purchaseOrder.getQuotation().getId()
 				+ "  , user_id = " + purchaseOrder.getCreatedBy().getId()
 				+ "  where id =  " + purchaseOrder.getId());
-
-		stmt.close();
-
-		conn.close();
 
 	}
 
@@ -134,17 +64,9 @@ public class PurchaseOrderRepository {
 
 	public ArrayList<PurchaseOrder> listAll() throws Exception {
 
-		// 0 - Registrar o Driver
-		Class.forName("org.apache.derby.jdbc.ClientDriver40");
-		// Class.forName("com.mysql.jdbc.Driver");
-
-		// 1 - Conectar
-		// Padrao de URL jdbc:<nomedovendor>:<subnome>
-		Connection conn = DriverManager.getConnection(
-		// "jdbc:mysql://localhost:3306/sonar"
-				"jdbc:derby://localhost:1527/gco;create=true", "app", "app");
-
-		// Ja estou conectado \o/ !!!!!
+		Connection conn = repository.getConnection();
+				
+				// Ja estou conectado \o/ !!!!!
 		// 2 - Capacidade de Executar Comandos
 		Statement stmt = conn.createStatement();
 

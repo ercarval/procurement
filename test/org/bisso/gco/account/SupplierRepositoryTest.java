@@ -2,8 +2,6 @@ package org.bisso.gco.account;
 
 import java.util.ArrayList;
 
-import com.mysql.fabric.Response;
-
 public class SupplierRepositoryTest {
 
 	private SupplierRepository repository;
