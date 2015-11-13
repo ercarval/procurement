@@ -18,7 +18,7 @@ import java.sql.Statement;
 public class CommonsRepository {
 
 	
-	public Connection getConnection() throws Exception {
+	public Connection getConnection() throws Exception { 
 		
 		Class.forName("org.apache.derby.jdbc.ClientDriver40");
 		// Class.forName("com.mysql.jdbc.Driver");
