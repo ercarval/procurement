@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bisso.commons.repository.CommonsRepository;
 import org.bisso.gco.procurement.PurchaseOrder;
@@ -62,30 +63,10 @@ public class PurchaseOrderRepository {
 
 	}
 
-	public ArrayList<PurchaseOrder> listAll() throws Exception {
-
-		Connection conn = repository.getConnection();
-				
-				// Ja estou conectado \o/ !!!!!
-		// 2 - Capacidade de Executar Comandos
-		Statement stmt = conn.createStatement();
-
-		ResultSet rset = stmt.executeQuery("select * from app.purchase_order");
-	
-		ArrayList<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
-		while ( rset.next() ) {
-			
-			PurchaseOrder purchaseOrder = new PurchaseOrder();
-			purchaseOrder.setId( rset.getLong("id") );
-			purchaseOrder.getSupplier().setId( rset.getLong("supplier_id") );
-			purchaseOrder.getCreatedBy().setId( rset.getLong("user_id") );
-			purchaseOrder.getQuotation().setId( rset.getLong("quotation_id") );
-			purchaseOrders.add(purchaseOrder);
-			System.out.println("");
-			
-		}
-		
-		return purchaseOrders;
+	public List<PurchaseOrder> listAll() throws Exception {
+		return repository.executeQuery( "select * from app.purchase_order" 
+								, new PurchaseOrderResultMapping());
+						
 		
 	}
 

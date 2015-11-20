@@ -2,7 +2,9 @@ package org.bisso.commons.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 
 /**
@@ -43,6 +45,10 @@ public class CommonsRepository {
 		
 	}
 	
+	
+		
+	
+
 	public int executeUpdate ( String sql) throws Exception {
 		
 		Connection conn = getConnection();
@@ -53,8 +59,25 @@ public class CommonsRepository {
 		
 		return result;
 	}
+
+	public ResultSet executeQuery (Connection conn, String query) throws Exception {
+		Statement stmt = conn.createStatement();
+		ResultSet rset = stmt.executeQuery(query);
+		stmt.close();
+		return rset;
+	}
 	
+	public List executeQuery (String query
+							, ResultMapping mapping) throws Exception {
+	
+		Connection conn = getConnection();
+		ResultSet rset = executeQuery(conn, query);
+		List results = mapping.mapping(rset);
 		
-	
-	
+		rset.close();
+		conn.close();
+		
+		return results;
+		
+	}	
 }
